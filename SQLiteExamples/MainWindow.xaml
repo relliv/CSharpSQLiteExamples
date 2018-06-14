@@ -1,0 +1,50 @@
+﻿<Window x:Class="SQLiteExamples.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TabControl>
+            <!--#region Create Database File-->
+            <TabItem Header="Creata DB File">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Create Database File" HorizontalAlignment="Center"/>
+                    <Button Content="Create DB" Padding="15" Margin="15" Click="CreateDb_Click"/>
+                </StackPanel>
+            </TabItem>
+            <!--#endregion Create Database File-->
+            <!--#region CRUD Operations-->
+            <TabItem Header="CRUD Operations">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Insert Some Values" Padding="10" Margin="10" Click="InsertSomeValues"/>
+                        <Button Content="Read Values " Padding="10" Margin="10" Click="ReadSomeValues"/>
+                        <Button Content="Update Item " Padding="10" Margin="10" Click="UpdateItem"/>
+                        <Button Content="Delete Item " Padding="10" Margin="10" Click="DeleteItem"/>
+                        <Button Content="Search Item " Padding="10" Margin="10" Click="SearchItem"/>
+                    </StackPanel>
+
+                    <ListView Grid.Row="1" Margin="10" Name="ProductsListView">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Manufacturer" Width="120" DisplayMemberBinding="{Binding Manufacturer}"/>
+                                <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Name}"/>
+                                <GridViewColumn Header="Version" Width="100" DisplayMemberBinding="{Binding Version}"/>
+                                <GridViewColumn Header="Count" Width="100" DisplayMemberBinding="{Binding Count}" />
+                                <GridViewColumn Header="Price" Width="100" DisplayMemberBinding="{Binding Price}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            <!--#endregion CRUD Operations-->
+        </TabControl>
+    </Grid>
+</Window>
